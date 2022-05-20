@@ -51,4 +51,16 @@ public class GreetingServiceImpl implements IGreetingService{
     public Greeting getGreetingById(long id){
         return greetingRepository.findById(id).get();
     }
+    /**
+     * Method to edit the greeting message.
+     * @param greeting - Will pass the greeting class with data in Json
+     * @return -  will return the updated greeting message
+     */
+    @Override
+    public Greeting updateGreeting(Greeting greeting) {
+        if (greetingRepository.findById(greeting.getId()).isPresent())
+            return greetingRepository.save(greeting);
+        else
+            return new Greeting(-1, " Greeting not found!");
+    }
 }

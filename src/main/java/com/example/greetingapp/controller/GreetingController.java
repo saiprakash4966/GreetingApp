@@ -4,10 +4,7 @@ import com.example.greetingapp.entity.Greeting;
 import com.example.greetingapp.entity.User;
 import com.example.greetingapp.service.IGreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -73,6 +70,17 @@ public class GreetingController {
     @GetMapping("/all")
     public List<Greeting> getAll() {
         return iGreetingService.getAll();
+    }
+
+    /** Method to edit the greeting message in the repo
+     *
+     * @param greeting - We will pass the greeting in Json format
+     * @return -  will edit and return the updated greeting message
+     * http://localhost:8080/greeting/edit
+     */
+    @PutMapping("/edit")
+    public Greeting updateGreeting(@RequestBody Greeting greeting) {
+        return iGreetingService.updateGreeting(greeting);
     }
     }
 

@@ -17,12 +17,7 @@ public class GreetingController {
     @Autowired
     private IGreetingService iGreetingService;
 
-    /**
-     * Method using GET to pass the name to the User and then to the Service layer.
-     * @param name - Will pass the name
-     * @return - Will return the counter and user name
-     * URL : http://localhost:8080/greeting/home?name=Sai
-     */
+
     @GetMapping("/home")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         User user = new User();
@@ -30,14 +25,7 @@ public class GreetingController {
         return iGreetingService.addGreeting(user);
     }
 
-    /**
-     *  Method using Get to pass the firstname and lastname and set it using the setters
-     *  Then the call the service layer and add the user to repository
-     * @param firstName
-     * @param lastName
-     * @return
-     * URL : http://localhost:8080/greeting/fullname?firstName=Sai&lastName=Prakash
-     */
+
     @GetMapping("/fullname")
     public Greeting greeting(@RequestParam(value = "firstName", defaultValue = "first") String firstName,
                              @RequestParam(value = "lastName", defaultValue = "last") String lastName ) {
@@ -49,48 +37,16 @@ public class GreetingController {
 
 
 
-    /**
-     * Method to Get the Greeting message by ID in repository.
-     *
-     * @param id - We are passing the id a parameter.
-     * @return - It will return the user repo for the given Id.
-     *
-     * URL : http://localhost:8080/greeting/get?id=1
-     */
+
     @GetMapping("/get")
     public Greeting getGreetingById(@RequestParam(name = "id") long id){
         return iGreetingService.getGreetingById(id);
     }
-    /**
-     *  Method to List all the greeting message in the repository
-     *
-     * @return- It will return the list of all the users in the repository
-     * URL : http://localhost:8080/greeting/all
-     */
-    @GetMapping("/all")
-    public List<Greeting> getAll() {
-        return iGreetingService.getAll();
-    }
 
-    /** Method to edit the greeting message in the repo
-     *
-     * @param greeting - We will pass the greeting in Json format
-     * @return -  will edit and return the updated greeting message
-     * http://localhost:8080/greeting/edit
-     */
-    @PutMapping("/edit")
-    public Greeting updateGreeting(@RequestBody Greeting greeting) {
+
+    @PostMapping("/save")
+    public Greeting saveGreeting(@RequestBody Greeting greeting) {
         return iGreetingService.updateGreeting(greeting);
-    }
-    /**
-     *  Method to delete the greeting message
-     *  We have used the Delete annotation method to delete it.
-     * @param id - We are passing the id to delete the greeting
-     * URL : http://localhost:8081/greeting/delete?id=1
-     */
-    @DeleteMapping("/delete")
-    public void deleteByID(@RequestParam(name = "id") long id) {
-        iGreetingService.delete(id);
     }
     }
 

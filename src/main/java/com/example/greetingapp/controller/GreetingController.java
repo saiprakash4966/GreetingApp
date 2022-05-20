@@ -26,28 +26,7 @@ public class GreetingController {
     }
 
 
-    @GetMapping("/fullname")
-    public Greeting greeting(@RequestParam(value = "firstName", defaultValue = "first") String firstName,
-                             @RequestParam(value = "lastName", defaultValue = "last") String lastName ) {
-        User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        return iGreetingService.addGreeting(user);
-    }
-
-
-
-
-    @GetMapping("/get")
-    public Greeting getGreetingById(@RequestParam(name = "id") long id){
-        return iGreetingService.getGreetingById(id);
-    }
-
-
-    @PostMapping("/save")
-    public Greeting saveGreeting(@RequestBody Greeting greeting) {
-        return iGreetingService.updateGreeting(greeting);
-    }
+  
     }
 
 

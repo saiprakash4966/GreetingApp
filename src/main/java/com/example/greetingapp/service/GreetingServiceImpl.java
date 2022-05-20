@@ -63,4 +63,11 @@ public class GreetingServiceImpl implements IGreetingService{
         else
             return new Greeting(-1, " Greeting not found!");
     }
+    /**
+     * Method to delete the greeting by id
+     * @param id -  we will pass the id to delete the greeting msg.
+     */
+    public void delete(long id) {
+        greetingRepository.deleteById(id);
+    }
 }

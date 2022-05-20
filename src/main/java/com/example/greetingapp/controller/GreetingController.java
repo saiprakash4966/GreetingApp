@@ -82,6 +82,16 @@ public class GreetingController {
     public Greeting updateGreeting(@RequestBody Greeting greeting) {
         return iGreetingService.updateGreeting(greeting);
     }
+    /**
+     *  Method to delete the greeting message
+     *  We have used the Delete annotation method to delete it.
+     * @param id - We are passing the id to delete the greeting
+     * URL : http://localhost:8081/greeting/delete?id=1
+     */
+    @DeleteMapping("/delete")
+    public void deleteByID(@RequestParam(name = "id") long id) {
+        iGreetingService.delete(id);
+    }
     }
 
 

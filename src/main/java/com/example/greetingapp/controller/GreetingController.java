@@ -50,17 +50,7 @@ public class GreetingController {
         return iGreetingService.addGreeting(user);
     }
 
-    /**
-     *  Method to Get all the message in the repository
-     *
-     * @return- It will return the list of all the users in the repository
-     * URL : http://localhost:8080/greeting/all
-     */
-    @GetMapping("/all")
-    public List<Greeting> getAll() {
-        return iGreetingService.getAll();
-    }
-
+   
     /**
      * Method to Get the Greeting message by ID in repository.
      *

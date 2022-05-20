@@ -21,7 +21,7 @@ public class GreetingController {
      * Method using GET to pass the name to the User and then to the Service layer.
      * @param name - Will pass the name
      * @return - Will return the counter and user name
-     * URL : http://localhost:8081/greeting/home?name=Tom
+     * URL : http://localhost:8080/greeting/home?name=Sai
      */
     @GetMapping("/home")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
@@ -36,7 +36,7 @@ public class GreetingController {
      * @param firstName
      * @param lastName
      * @return
-     * URL : http://localhost:8081/greeting/fullname?firstName=Tom&lastName=Thomas
+     * URL : http://localhost:8080/greeting/fullname?firstName=Sai&lastName=Prakash
      */
     @GetMapping("/fullname")
     public Greeting greeting(@RequestParam(value = "firstName", defaultValue = "first") String firstName,

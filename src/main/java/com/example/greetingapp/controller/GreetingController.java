@@ -50,16 +50,7 @@ public class GreetingController {
         return iGreetingService.addGreeting(user);
     }
 
-    /**
-     *  Method to Get all the message in the repository
-     *
-     * @return- It will return the list of all the users in the repository
-     * URL : http://localhost:8080/greeting/all
-     */
-    @GetMapping("/all")
-    public List<Greeting> getAll() {
-        return iGreetingService.getAll();
-    }
+
 
     /**
      * Method to Get the Greeting message by ID in repository.
@@ -72,6 +63,16 @@ public class GreetingController {
     @GetMapping("/get")
     public Greeting getGreetingById(@RequestParam(name = "id") long id){
         return iGreetingService.getGreetingById(id);
+    }
+    /**
+     *  Method to List all the greeting message in the repository
+     *
+     * @return- It will return the list of all the users in the repository
+     * URL : http://localhost:8080/greeting/all
+     */
+    @GetMapping("/all")
+    public List<Greeting> getAll() {
+        return iGreetingService.getAll();
     }
     }
 

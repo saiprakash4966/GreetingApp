@@ -1,6 +1,6 @@
 package com.example.greetingapp.service;
 
-iimport com.example.greetingapp.entity.Greeting;
+import com.example.greetingapp.entity.Greeting;
 import com.example.greetingapp.entity.User;
 
 import java.util.List;
